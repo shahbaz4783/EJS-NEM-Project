@@ -1,3 +1,6 @@
 export const getSupportPage = (req, res) => {
-    res.send('Support Page')
+    res.render('index', {
+			pageTitle: 'Support - SkillHub Connect',
+			content: 'support/index',
+		});
 }
