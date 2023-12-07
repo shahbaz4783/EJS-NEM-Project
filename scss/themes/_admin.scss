@@ -1,0 +1,12 @@
+.admin-panel {
+    display: flex;
+    min-height: 100dvh;
+
+    .admin-navigation {
+        width: 20%;
+    }
+
+    .admin-content {
+        min-height: 100dvh;
+    }
+}
