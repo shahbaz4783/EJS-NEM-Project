@@ -19,8 +19,5 @@
 @forward 'themes/admin';
 
 @forward 'utils/variables';
-@forward 'utils/mixins';
-@forward 'utils/functions';
-@forward 'utils/helpers';
 
-@forward 'vendors/bootstrap'
+@forward 'vendors/bootstrap';

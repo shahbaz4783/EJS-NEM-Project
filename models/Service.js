@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const serviceSchema = new mongoose.Schema({
 	title: {
 		type: String,
 		required: true,
 	},
-	description: {
+	tag: {
 		type: String,
 		required: true,
 	},
@@ -13,8 +13,12 @@ const serviceSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
+	description: {
+		type: String,
+		required: true,
+	},
 });
 
-const service = mongoose.model('Service', serviceSchema)
+const service = mongoose.model('Service', serviceSchema);
 
-export default service
+export default service;

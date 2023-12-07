@@ -1,3 +1,5 @@
+@use '../utils/mixins' as m;
+
 #navigation {
 	display: flex;
 	height: 10vh;
@@ -8,8 +10,7 @@
 	transition: background-color 0.4s ease;
 	background-color: transparent;
 	margin-right: 20px;
-	box-shadow: #32325d40 0px 2px 5px -1px,
-		#0000004d 0px 1px 3px -1px;
+	box-shadow: #32325d40 0px 2px 5px -1px, #0000004d 0px 1px 3px -1px;
 
 	#logo {
 		width: 10%;
@@ -77,7 +78,6 @@ nav {
 	}
 }
 
-
 .user-actions {
 	flex: 3;
 	display: flex;
@@ -109,61 +109,52 @@ nav {
 	}
 }
 
-
 #admin-navigation {
+	height: 100dvh;
+	flex: 1.5;
+	justify-content: center;
 
-    height: 100dvh;
-    flex: 1.5;
-    justify-content: center;
+	.profile-info {
+		width: 90%;
+		margin: auto;
+		@include m.flex-column;
+		gap: 1em;
+		text-align: center;
 
-    .profile-info {
-        width: 90%;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-        text-align: center;
+		article {
+			@include m.flex-column;
+			gap: 0.4em;
+            
+			div {
+				@include m.flex-column;
+				width: 40%;
+				margin: auto;
+			}
+		}
+	}
 
-        article {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4em;
-            div {
-            display: flex;
-            flex-direction: column;
-            width: 40%;
-            margin: auto;
-            }
-        }
-    }
+	nav {
+		ul {
+			@include m.flex-column;
+			width: 90%;
+			padding: 0;
+			margin: auto;
+			height: 100%;
 
-    nav {
-        
-        ul {
-            display: flex;
-            flex-direction: column;
-            width: 90%;
-            padding: 0;
-            margin: auto;
-            height: 100%;
+			li {
+				a {
+					width: 100%;
+					height: 100%;
+					margin: 0;
+					padding: 1em;
+					border-radius: 0.6em;
+					transition: all 0.25s ease;
 
-             li {
-
-                a {
-                    width: 100%;
-                    height: 100%;
-                    margin: 0;
-                    padding: 1em;
-                    border-radius: 0.6em;
-                    transition: all 0.25s ease;
-                    
-                    &:hover {
-                        background-color: #d69cd6;
-                    }
-                }
-             }
-    
-        }
-    }
-
+					&:hover {
+						background-color: #d69cd6;
+					}
+				}
+			}
+		}
+	}
 }

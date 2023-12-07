@@ -1,5 +1,24 @@
 <section>
-    <h2>
-        Add a service
-    </h2>
+	<div class="form-container">
+		<form action="/admin/service/add" method="post" class="form">
+			<span class="heading">Add Your Service</span>
+			<input placeholder="Title of Your Service" type="text" class="input" name="title" />
+			<input placeholder="Enter a Tag" id="tag" type="tag" name="tag" class="input" />
+			<input placeholder="Price of Your Service ($)" id="price" name="price" type="number" class="input" />
+			<textarea
+				placeholder="Describe your Service"
+				rows="10"
+				cols="30"
+				id="description"
+				name="description"
+				class="textarea"
+			></textarea>
+			<div class="button-container">
+				<button type="submit" class="send-button">Add</button>
+				<div class="reset-button-container">
+					<div id="reset-btn" class="reset-button">Reset</div>
+				</div>
+			</div>
+		</form>
+	</div>
 </section>
