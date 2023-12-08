@@ -51,18 +51,18 @@ export const getAllService = async (req, res) => {
 };
 
 export const getEditService = async (req, res) => {
-    const editMode = req.query.edit;
+	const editMode = req.query.edit;
 	if (!editMode) {
 		res.redirect('/');
 	}
 	try {
-        const serviceID = req.params.serviceID;
+		const serviceID = req.params.serviceID;
 		const service = await Service.findById(serviceID);
 		res.render('admin/index', {
 			editing: editMode,
-            path: '/service/add',
-            pageTitle: 'Edit Your Service Details',
-            serviceInfo: service,
+			path: '/service/add',
+			pageTitle: 'Edit Your Service Details',
+			serviceInfo: service,
 		});
 	} catch (err) {
 		console.error(err);
@@ -72,6 +72,27 @@ export const getEditService = async (req, res) => {
 
 export const postEditService = async (req, res) => {
 	try {
+		const serviceID = req.body.serviceID;
+		const updatedTitle = req.body.title;
+		const updatedPrice = req.body.price;
+		const updatedDescription = req.body.description;
+		const updatedTag = req.body.tag;
+
+		const service = await Service.findById(serviceID);
+
+		if (!service) {
+			return res.status(404).send('Service not found');
+		}
+
+		service.title = updatedTitle;
+		service.price = updatedPrice;
+		service.description = updatedDescription;
+		service.tag = updatedTag;
+
+		const updatedService = await service.save();
+
+		console.log(updatedService);
+		res.redirect('/admin/service/all');
 	} catch (err) {
 		console.error(err);
 		res.status(500).send('Internal Server Error');

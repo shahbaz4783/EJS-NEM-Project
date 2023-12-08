@@ -14,6 +14,9 @@
 				class="textarea"
 			><%= editing ? serviceInfo.description : '' %></textarea>
 			<div class="button-container">
+                <% if (editing) { %>
+                <input type="hidden" name="serviceID" value="<%= serviceInfo._id %>" />
+                <%  }  %>
 				<button type="submit" class="send-button"><%= editing ? 'Edit' : 'Add' %></button>
 				<div class="reset-button-container">
 					<div id="reset-btn" class="reset-button">Reset</div>
