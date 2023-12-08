@@ -17,7 +17,7 @@
 			<p class="p"><%= service.description %></p>
 			<div>
 				<form action="/admin/service/delete" method="post">
-					<input type="hidden" name="itemID" value="<%= service._id %>">
+					<input type="hidden" name="serviceID" value="<%= service._id %>">
 					<button type="submit"><img src="/assets/delete.svg" alt="" /></button>
 				</form>
 				<a href="/admin/service/edit/<%= service._id %>?edit=true">

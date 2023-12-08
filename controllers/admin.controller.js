@@ -98,3 +98,14 @@ export const postEditService = async (req, res) => {
 		res.status(500).send('Internal Server Error');
 	}
 };
+
+export const deleteService = async (req, res) => {
+	try {
+		const serviceID = req.body.serviceID;
+		await Service.findByIdAndDelete(serviceID);
+        res.redirect('/admin/service/all')
+	} catch (error) {
+		console.error(err);
+		res.status(500).send('Internal Server Error');
+	}
+};
