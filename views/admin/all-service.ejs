@@ -1,3 +1,27 @@
 <main>
-    <h2>All Services</h2>
+    <section class="admin-service">
+	<% for (service of services) { %>
+	<article class="card">
+		<div class="imgDiv">
+			<img src="https://blog.hubspot.com/hs-fs/hubfs/customer-service-3.png?width=595&height=400&name=customer-service-3.png" alt="" />
+		</div>
+		<div class="textBox">
+			<div class="textContent">
+				<p class="h1"><%= service.title %></p>
+				<span class="span"><%= service.price %></span>
+			</div>
+			<p class="p"><%= service.description %></p>
+			<div>
+				<form action="/admin/service/delete" method="post">
+					<input type="hidden" name="itemID" value="<%= service._id %>">
+					<button type="submit"><img src="/assets/delete.svg" alt="" /></button>
+				</form>
+				<a href="/admin/service/edit/<%= service._id %>?edit=true"
+					><img src="/assets/edit.svg" alt=""
+				/></a>
+			</div>
+		</div>
+	</article>
+    <% } %>
+</section>
 </main>
