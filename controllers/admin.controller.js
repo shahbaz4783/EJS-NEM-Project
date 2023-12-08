@@ -51,14 +51,18 @@ export const getAllService = async (req, res) => {
 };
 
 export const getEditService = async (req, res) => {
+    const editMode = req.query.edit;
 	if (!editMode) {
 		res.redirect('/');
 	}
 	try {
-		const editMode = req.query.edit;
-		const editService = await User.findByID(editMode);
+        const serviceID = req.params.serviceID;
+		const service = await Service.findById(serviceID);
 		res.render('admin/index', {
 			editing: editMode,
+            path: '/service/add',
+            pageTitle: 'Edit Your Service Details',
+            serviceInfo: service,
 		});
 	} catch (err) {
 		console.error(err);

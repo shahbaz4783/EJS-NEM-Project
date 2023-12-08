@@ -2,3 +2,7 @@
   display: flex;
   flex-direction: column;
 }
+
+@mixin shadow-1 {
+    box-shadow: var(--bg-color-dark) 0px 1px 4px;
+}

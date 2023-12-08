@@ -1,60 +1,63 @@
-.admin-products {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1em;
+@use '../utils/mixins' as m;
 
-.card {
-  width: 100%;
-  border-radius: 0.6em;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  backdrop-filter: blur(10px);
-  transition: 0.5s ease-in-out;
-}
+// Card 1
+.admin-service-card {
+  @include m.flex-column;
+  @include m.shadow-1;
+	width: 100%;
+	border-radius: 0.8em;
+	align-items: center;
+	justify-content: left;
+	backdrop-filter: blur(10px);
+	transition: 0.5s ease-in-out;
+	cursor: pointer;
+  overflow: hidden;
 
-.card:hover {
-  cursor: pointer;
-  transform: scale(1.01);
-}
 
-.imgDiv {
-    flex: 4;
-  img {
-    width: 100%;
+	.img-container {
+		flex: 4;
+		img {
+			width: 100%;
+      object-fit: cover;
+      aspect-ratio: 5/3;
+		}
+
   }
+
+		.text-container {
+			flex: 8;
+			margin-left: 10px;
+			font-family: 'Poppins' sans-serif;
+
+			.textContent {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+		}
 }
 
-.card:hover > .img {
-  transition: 0.5s ease-in-out;
-  background: linear-gradient(#9198e5, #712020);
-}
+// Card 2
+.profile-card {
+	width: 90%;
+	margin: auto;
+	@include m.flex-column;
+	gap: 1em;
+	text-align: center;
 
-.textBox {
-    flex: 8;
-  margin-left: 10px;
-  font-family: 'Poppins' sans-serif;
-}
+	article {
+		@include m.flex-column;
+		gap: 0.4em;
 
-.textContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+		div {
+			@include m.flex-column;
+			width: 40%;
+			margin: auto;
 
-.span {
-  font-size: 10px;
-}
-
-.h1 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.p {
-  font-size: 12px;
-  font-weight: lighter;
-}
-
-
+			img {
+				border-radius: 50%;
+				aspect-ratio: 1/1;
+			}
+		}
+	}
 }

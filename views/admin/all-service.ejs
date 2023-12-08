@@ -1,14 +1,18 @@
 <main>
-    <section class="admin-service">
+    <section>
+        <h2>All Services</h2>
+        <p>Manage Your Service</p>
+    </section>
+<section class="grid-3-col">
 	<% for (service of services) { %>
-	<article class="card">
-		<div class="imgDiv">
+	<article class="admin-service-card">
+		<div class="img-container">
 			<img src="https://blog.hubspot.com/hs-fs/hubfs/customer-service-3.png?width=595&height=400&name=customer-service-3.png" alt="" />
 		</div>
-		<div class="textBox">
+		<div class="text-container">
 			<div class="textContent">
-				<p class="h1"><%= service.title %></p>
-				<span class="span"><%= service.price %></span>
+				<h2 class="service-title"><%= service.title %></h2>
+				<h3 class="service-price">$<%= service.price %></h3>
 			</div>
 			<p class="p"><%= service.description %></p>
 			<div>
@@ -16,9 +20,9 @@
 					<input type="hidden" name="itemID" value="<%= service._id %>">
 					<button type="submit"><img src="/assets/delete.svg" alt="" /></button>
 				</form>
-				<a href="/admin/service/edit/<%= service._id %>?edit=true"
-					><img src="/assets/edit.svg" alt=""
-				/></a>
+				<a href="/admin/service/edit/<%= service._id %>?edit=true">
+                    <img src="/assets/edit.svg" alt="Edit" />
+                </a>
 			</div>
 		</div>
 	</article>

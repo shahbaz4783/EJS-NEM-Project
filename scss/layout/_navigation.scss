@@ -114,25 +114,6 @@ nav {
 	flex: 1.5;
 	justify-content: center;
 
-	.profile-info {
-		width: 90%;
-		margin: auto;
-		@include m.flex-column;
-		gap: 1em;
-		text-align: center;
-
-		article {
-			@include m.flex-column;
-			gap: 0.4em;
-            
-			div {
-				@include m.flex-column;
-				width: 40%;
-				margin: auto;
-			}
-		}
-	}
-
 	nav {
 		ul {
 			@include m.flex-column;
@@ -142,19 +123,23 @@ nav {
 			height: 100%;
 
 			li {
-				a {
+                a {
 					width: 100%;
 					height: 100%;
-					margin: 0;
+                    margin: 0.2em;
 					padding: 1em;
 					border-radius: 0.6em;
 					transition: all 0.25s ease;
 
 					&:hover {
-						background-color: #d69cd6;
+						background-color: #e2b3e2;
 					}
 				}
 			}
 		}
 	}
+}
+
+.active {
+    background-color: #d69cd6;
 }
