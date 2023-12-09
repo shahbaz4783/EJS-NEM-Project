@@ -1,4 +1,5 @@
 import Service from '../models/Service.js';
+import Job from '../models/Job.js';
 
 export const getDashboard = (req, res) => {
 	res.render('admin/index', {
@@ -8,6 +9,10 @@ export const getDashboard = (req, res) => {
 	});
 };
 
+
+//------------- Service Controller
+
+//------ get
 export const getAddService = (req, res) => {
 	res.render('admin/index', {
 		content: 'admin/index',
@@ -17,31 +22,13 @@ export const getAddService = (req, res) => {
 	});
 };
 
-export const postAddService = async (req, res) => {
-	const title = req.body.title;
-	const price = req.body.price;
-	const description = req.body.description;
-	const tag = req.body.tag;
-
-	const service = new Service({ title, tag, price, description });
-	try {
-		const result = await service.save();
-		console.log(result);
-		res.redirect('/');
-	} catch (err) {
-		console.error(err);
-		res.status(500).send('Internal Server Error');
-	}
-};
-
-export const getAllService = async (req, res) => {
+export const getAllServices = async (req, res) => {
 	try {
 		const services = await Service.find();
-		console.log(services);
 		res.render('admin/index', {
 			content: 'admin/index',
-			pageTitle: 'Admin Panel',
-			path: '/service/all',
+			pageTitle: 'Manage Your Services',
+			path: '/services/all',
 			services: services,
 		});
 	} catch (err) {
@@ -69,6 +56,40 @@ export const getEditService = async (req, res) => {
 		res.status(500).send('Internal Server Error');
 	}
 };
+
+export const getSettings = async (req, res) => {
+	try {
+		res.render('admin/index', {
+			content: 'admin/index',
+			pageTitle: 'Admin Panel',
+			path: '/settings',
+		});
+	} catch (err) {
+		console.error(err);
+		res.status(500).send('Internal Server Error');
+	}
+};
+
+//------ post
+
+export const postAddService = async (req, res) => {
+	const title = req.body.title;
+	const price = req.body.price;
+	const description = req.body.description;
+	const tag = req.body.tag;
+
+	const service = new Service({ title, tag, price, description });
+	try {
+		const result = await service.save();
+		console.log(result);
+		res.redirect('/');
+	} catch (err) {
+		console.error(err);
+		res.status(500).send('Internal Server Error');
+	}
+};
+
+
 
 export const postEditService = async (req, res) => {
 	try {
@@ -103,9 +124,31 @@ export const deleteService = async (req, res) => {
 	try {
 		const serviceID = req.body.serviceID;
 		await Service.findByIdAndDelete(serviceID);
-        res.redirect('/admin/service/all')
+        res.redirect('/admin/services/all')
 	} catch (error) {
 		console.error(err);
 		res.status(500).send('Internal Server Error');
 	}
 };
+
+
+//------------- Job Controller
+
+//------ get
+export const getAllJobs = async (req, res) => {
+    try {
+        const jobs = await Job.find()
+        res.render('admin/index', {
+            path: '/jobs/all',
+            pageTitle: 'Manage Your Job Listing',
+            jobs: jobs,
+        })
+        
+    } catch (error) {
+        console.error(err);
+		res.status(500).send('Internal Server Error');
+    }
+}
+
+//------ post
+

@@ -1,22 +1,28 @@
 import express from 'express';
 import {
-    deleteService,
+	deleteService,
 	getAddService,
-	getAllService,
+	getAllJobs,
+	getAllServices,
 	getDashboard,
 	getEditService,
+	getSettings,
 	postAddService,
-    postEditService,
+	postEditService,
 } from '../controllers/admin.controller.js';
 
 const router = express.Router();
 
 router.get('/', getDashboard);
 router.get('/service/add', getAddService);
-router.post('/service/add', postAddService);
-router.get('/service/all', getAllService);
+router.get('/services/all', getAllServices);
+router.get('/settings', getSettings);
 router.get('/service/edit/:serviceID', getEditService);
+
+router.post('/service/add', postAddService);
 router.post('/service/edit', postEditService);
 router.post('/service/delete', deleteService);
+
+router.get('/jobs/all', getAllJobs);
 
 export default router;

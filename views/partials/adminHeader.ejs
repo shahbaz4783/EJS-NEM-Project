@@ -10,14 +10,11 @@
         </article>
     </div>
     <nav>
-        <% console.log(locals) %>
         <ul>
             <li><a class="<%= path === '/' ? 'active' : '' %>" href="/admin">Dashboard</a></li>
-            <li><a class="<%= path === '/service/add' ? 'active' : '' %>" href="/admin/service/add">Add Service</a></li>
-            <li><a class="<%= path === '/service/all' ? 'active' : '' %>" href="/admin/service/all">All Service</a></li>
-            <li><a class="<%= path === '/job/add' ? 'active' : '' %>" href="/admin/job/add">Add Job</a></li>
-            <li><a class="<%= path === '/job/add' ? 'active' : '' %>" href="/admin/job/all">All Job</a></li>
-            <li><a class="<%= path === '/setttings' ? 'active' : '' %>" href="/admin/settings">Settings</a></li>
+            <li><a class="<%= path === '/services/all' ? 'active' : '' %>" href="/admin/services/all">Your Services</a></li>
+            <li><a class="<%= path === '/jobs/all' ? 'active' : '' %>" href="/admin/jobs/all">Your Jobs</a></li>
+            <li><a class="<%= path === '/settings' ? 'active' : '' %>" href="/admin/settings">Settings</a></li>
         </ul>
     </nav>
 </header>

@@ -61,3 +61,24 @@
 		}
 	}
 }
+
+
+// Card 2
+.add-card {
+  @include m.flex-column;
+  @include m.shadow-1;
+  border-radius: 0.8em;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6em;
+
+  .icon-container {
+    @include m.flex-column;
+    width: 40%;
+
+
+    img {
+      width: 100%;
+    }
+  }
+}
