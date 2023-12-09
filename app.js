@@ -3,6 +3,7 @@ import express from 'express';
 import indexRoutes from './routes/index.routes.js';
 import supportRoutes from './routes/support.routes.js';
 import adminRoutes from './routes/admin.routes.js'
+import marketplaceRoutes from './routes/marketplace.routes.js'
 import { error } from './controllers/error.controller.js';
 import { connectDB } from './config/db.js';
 
@@ -13,6 +14,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(indexRoutes);
 app.use(supportRoutes);
+app.use(marketplaceRoutes);
 app.use('/admin', adminRoutes);
 app.use(error);
 

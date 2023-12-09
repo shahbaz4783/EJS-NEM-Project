@@ -12,16 +12,6 @@
 	cursor: pointer;
   overflow: hidden;
 
-	.img-container {
-		img {
-			width: 100%;
-      object-fit: cover;
-      aspect-ratio: 5/3;
-      mix-blend-mode: multiply;
-		}
-
-  }
-
 		.text-container {
 			flex: 8;
 			margin-left: 10px;

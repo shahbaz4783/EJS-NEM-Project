@@ -10,7 +10,7 @@
 	transition: background-color 0.4s ease;
 	background-color: transparent;
 	margin-right: 20px;
-	box-shadow: #32325d40 0px 2px 5px -1px, #0000004d 0px 1px 3px -1px;
+    @include m.shadow-2;
 
 	#logo {
 		width: 10%;
@@ -23,41 +23,8 @@
 	&:last-child {
 		display: flex;
 	}
-
-	@media screen and (max-width: 768px) {
-		nav {
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			background-color: #181e27;
-			margin: 0;
-			border-bottom: 2px solid;
-			height: 6%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			ul {
-				display: flex;
-				justify-content: space-between;
-				padding: 0;
-				width: 90%;
-
-				li {
-					&:first-child {
-						display: flex;
-					}
-				}
-			}
-		}
-
-		.container {
-			width: 60%;
-			margin: 1em;
-		}
-	}
 }
+
 
 nav {
 	flex: 4;

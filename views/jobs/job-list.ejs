@@ -1,0 +1,25 @@
+<section>
+<div class="grid-3-col">
+		<% for (job of jobs) { %>
+		<div class="card">
+			<div class="img-container">
+				<img src="https://blog.hubspot.com/hs-fs/hubfs/customer-service-3.png?width=595&height=400&name=customer-service-3.png" alt="" />
+			</div>
+			<a href="/job/<%= job._id %>">
+				<p class="text-title"><%= job.title %></p>
+				<p class="text-body"><%= job.description %></p>
+			</a>
+			<div class="card-footer">
+				<span class="text-title">$ <%= job.price %></span>
+
+				<form class="card-button" action="/cart" method="post">
+					<input type="hidden" name="jobID" value="<%= job._id %>" />
+					<button type="submit" id="cart">
+						<img src="/assets/cart.svg" alt="" />
+					</button>
+				</form>
+			</div>
+		</div>
+		<% } %>
+	</div>
+    </section>
