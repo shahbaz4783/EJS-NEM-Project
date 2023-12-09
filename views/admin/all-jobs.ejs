@@ -1,3 +1,8 @@
+<main>
+    <section>
+        <h2>Your All Jobs Listed</h2>
+        <p>Manage Your listed jobs</p>
+    </section>
 <section class="grid-3-col">
 	<% for (job of jobs) { %>
 	<article class="admin-service-card">
@@ -11,11 +16,11 @@
 			</div>
 			<p class="p"><%= job.description %></p>
 			<div>
-				<form action="/admin/service/delete" method="post">
-					<input type="hidden" name="serviceID" value="<%= service._id %>">
+				<form action="/admin/job/delete" method="post">
+					<input type="hidden" name="jobID" value="<%= job._id %>">
 					<button type="submit"><img src="/assets/delete.svg" alt="" /></button>
 				</form>
-				<a href="/admin/service/edit/<%= job._id %>?edit=true">
+				<a href="/admin/job/edit/<%= job._id %>?edit=true">
                     <img src="/assets/edit.svg" alt="Edit" />
                 </a>
 			</div>
@@ -24,3 +29,4 @@
     <% } %>
     <%- include('../layouts/add-card') %>
 </section>
+</main>

@@ -24,6 +24,9 @@
                 <% break; %> 
                 <% case '/jobs/all': %>
                 <%- include('./all-jobs') %>
+                <% break; %> 
+                <% case '/job/add': %>
+                <%- include('./add-job') %>
                 <% break; default: %> 
                 <%- include('./dashboard') %> 
                 <% break; } %>

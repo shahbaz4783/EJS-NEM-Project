@@ -5,21 +5,19 @@
   @include m.flex-column;
   @include m.shadow-1;
 	width: 100%;
+  min-height: fit-content;
 	border-radius: 0.8em;
-	align-items: center;
-	justify-content: left;
 	backdrop-filter: blur(10px);
 	transition: 0.5s ease-in-out;
 	cursor: pointer;
   overflow: hidden;
 
-
 	.img-container {
-		flex: 4;
 		img {
 			width: 100%;
       object-fit: cover;
       aspect-ratio: 5/3;
+      mix-blend-mode: multiply;
 		}
 
   }
@@ -71,6 +69,7 @@
   justify-content: center;
   align-items: center;
   gap: 0.6em;
+  min-height: 42dvh;
 
   .icon-container {
     @include m.flex-column;

@@ -1,0 +1,27 @@
+<section>
+	<div class="form-container">
+		<form action="/admin/job/<%= editing ? 'edit' : 'add'%>" method="post" class="form">
+			<span class="heading"><%= editing ? 'Edit Your Job Listing' : 'Post a new Job' %></span>
+			<input placeholder="Title of Your Job" type="text" class="input" name="title" value="<%= editing ? jobInfo.title : '' %>" />
+			<input placeholder="Enter a Tag" id="tag" type="tag" name="tag" class="input" value="<%= editing ? jobInfo.tag : '' %>" />
+			<input placeholder="Salary of Your Job ($)" id="price" name="price" type="number" class="input" value="<%= editing ? jobInfo.price : '' %>" />
+			<textarea
+				placeholder="Describe your Job"
+				rows="10"
+				cols="30"
+				id="description"
+				name="description"
+				class="textarea"
+			><%= editing ? jobInfo.description : '' %></textarea>
+			<div class="button-container">
+                <% if (editing) { %>
+                <input type="hidden" name="jobID" value="<%= jobInfo._id %>" />
+                <%  }  %>
+				<button type="submit" class="send-button"><%= editing ? 'Edit' : 'Add' %></button>
+				<div class="reset-button-container">
+					<div id="reset-btn" class="reset-button">Reset</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
