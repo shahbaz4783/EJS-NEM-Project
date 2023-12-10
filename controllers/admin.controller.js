@@ -75,8 +75,9 @@ export const postAddService = async (req, res) => {
 	const price = req.body.price;
 	const description = req.body.description;
 	const tag = req.body.tag;
+	const userID = req.user;
 
-	const service = new Service({ title, tag, price, description });
+	const service = new Service({ title, tag, price, description, userID });
 	try {
 		await service.save();
 		res.redirect('/admin/services/all');
