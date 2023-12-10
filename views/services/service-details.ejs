@@ -1,3 +1,31 @@
-<section>
-    <h1>Service Details</h1>
-</section>
+<main class="product-info">
+	<section class="basic-details">
+		<aside>
+			<img src="https://blog.hubspot.com/hs-fs/hubfs/customer-service-3.png?width=595&height=400&name=customer-service-3.png" alt="" />
+		</aside>
+		<article>
+            <div class="product-specs-container">
+                <h2><%= info.title %></h2>
+                <p><%= info.description %></p>
+                <h3>$ <%= info.price %></h3>
+            </div>
+		</article>
+	</section>
+	<article class="shop-info">
+		<div class="info-container">
+			<div class="price">
+                <h3>$ <%= info.price %></h3>
+            </div>
+			<div class="btn-actions">
+				<form action="/cart" method="post">
+					<input type="hidden" name="productID" value="<%= info.id %>" />
+					<input type="submit" name="cart" id="cart" value="Add to cart" />
+				</form>
+				<form action="/checkout" method="post">
+					<input type="hidden" name="productID" value="<%= info.id %>" />
+					<input type="submit" name="checkout" id="checkout" value="Buy Now" />
+				</form>
+			</div>
+		</div>
+	</article>
+</main>

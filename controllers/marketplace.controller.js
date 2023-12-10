@@ -20,10 +20,9 @@ export const getServiceDetails = async (req, res) => {
 		const serviceDetails = await Service.findById(serviceID);
 		res.render('index', {
 			content: './services/service-details',
-			servicesInfo: serviceDetails,
+			info: serviceDetails,
 			pageTitle: serviceDetails.title,
 		});
-        console.log(serviceID)
 	} catch (error) {
 		console.log(error);
 	}
@@ -48,10 +47,9 @@ export const getJobDetails = async (req, res) => {
 		const jobDetails = await Job.findById(jobID);
 		res.render('index', {
 			content: './jobs/job-details',
-			servicesInfo: jobDetails,
+			info: jobDetails,
 			pageTitle: jobDetails.title,
 		});
-		console.log(jobID);
 	} catch (error) {
 		console.log(error);
 	}
