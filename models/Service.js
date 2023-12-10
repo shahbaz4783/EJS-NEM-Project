@@ -17,6 +17,11 @@ const serviceSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	userID: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'User',
+		required: true,
+	},
 });
 
 const service = mongoose.model('Service', serviceSchema);
