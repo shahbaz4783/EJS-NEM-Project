@@ -12,24 +12,7 @@
                 <%- include('../partials/adminHeader') %>
             </aside>
 			<section class="admin-content">
-				<% switch (path) 
-                { case '/service/add': %> 
-                <%- include('./add-service') %> 
-                <% break; %>
-                <% case '/services/all': %>
-                <%- include('./all-service') %>
-                <% break; %> 
-                <% case '/settings': %>
-                <%- include('./settings') %>
-                <% break; %> 
-                <% case '/jobs/all': %>
-                <%- include('./all-jobs') %>
-                <% break; %> 
-                <% case '/job/add': %>
-                <%- include('./add-job') %>
-                <% break; default: %> 
-                <%- include('./dashboard') %> 
-                <% break; } %>
+				<%- include(content) %>
 			</section>
 		</main>
 	</body>

@@ -3,6 +3,7 @@ import Job from '../models/Job.js';
 
 export const getDashboard = (req, res) => {
 	res.render('admin/index', {
+		content: './dashboard',
 		pageTitle: 'Admin Panel',
 		path: '/',
 	});
@@ -13,7 +14,7 @@ export const getDashboard = (req, res) => {
 //------ get
 export const getAddService = (req, res) => {
 	res.render('admin/index', {
-		content: 'admin/index',
+		content: './service-form',
 		pageTitle: 'Admin Panel',
 		path: '/service/add',
 		editing: false,
@@ -24,7 +25,7 @@ export const getAllServices = async (req, res) => {
 	try {
 		const services = await Service.find();
 		res.render('admin/index', {
-			content: 'admin/index',
+			content: './all-service',
 			pageTitle: 'Manage Your Services',
 			path: '/services/all',
 			services: services,
@@ -44,6 +45,7 @@ export const getEditService = async (req, res) => {
 		const serviceID = req.params.serviceID;
 		const service = await Service.findById(serviceID);
 		res.render('admin/index', {
+			content: './service-form',
 			editing: editMode,
 			path: '/service/add',
 			pageTitle: 'Edit Your Service Details',
@@ -58,7 +60,7 @@ export const getEditService = async (req, res) => {
 export const getSettings = async (req, res) => {
 	try {
 		res.render('admin/index', {
-			content: 'admin/index',
+			content: './settings',
 			pageTitle: 'Admin Panel',
 			path: '/settings',
 		});
@@ -132,6 +134,7 @@ export const getAllJobs = async (req, res) => {
 	try {
 		const jobs = await Job.find();
 		res.render('admin/index', {
+			content: './all-jobs',
 			path: '/jobs/all',
 			pageTitle: 'Manage Your Job Listing',
 			jobs: jobs,
@@ -144,6 +147,7 @@ export const getAllJobs = async (req, res) => {
 
 export const getAddJob = (req, res) => {
 	res.render('admin/index', {
+		content: './job-form',
 		pageTitle: 'Admin Panel',
 		path: '/job/add',
 		editing: false,
@@ -159,6 +163,7 @@ export const getEditJob = async (req, res) => {
 		const jobID = req.params.jobID;
 		const job = await Job.findById(jobID);
 		res.render('admin/index', {
+			content: './job-form',
 			editing: editMode,
 			path: '/job/add',
 			pageTitle: 'Edit Your Job Listing',
