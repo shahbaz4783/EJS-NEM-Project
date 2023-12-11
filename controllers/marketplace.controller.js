@@ -5,6 +5,7 @@ export const getAllServices = async (req, res) => {
 	try {
 		const allServices = await Service.find();
 		res.render('index', {
+            path: '/services',
 			content: './services/service-list',
 			services: allServices,
 			pageTitle: 'Browse All Services',
@@ -19,6 +20,7 @@ export const getServiceDetails = async (req, res) => {
 		const serviceID = req.params.serviceID;
 		const serviceDetails = await Service.findById(serviceID);
 		res.render('index', {
+			path: '/services',
 			content: './services/service-details',
 			info: serviceDetails,
 			pageTitle: serviceDetails.title,
@@ -32,6 +34,7 @@ export const getAllJobs = async (req, res) => {
 	try {
 		const allJobs = await Job.find();
 		res.render('index', {
+			path: '/jobs',
 			content: './jobs/job-list',
 			jobs: allJobs,
 			pageTitle: 'Browse All Job Listing',
@@ -46,6 +49,7 @@ export const getJobDetails = async (req, res) => {
 		const jobID = req.params.jobID;
 		const jobDetails = await Job.findById(jobID);
 		res.render('index', {
+			path: '/jobs',
 			content: './jobs/job-details',
 			info: jobDetails,
 			pageTitle: jobDetails.title,

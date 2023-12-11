@@ -2,6 +2,7 @@ import User from '../models/User.js';
 
 export const getLoginForm = (req, res) => {
 	res.render('index', {
+		path: '/login',
 		content: './auth/login',
 		pageTitle: 'Login to Your Account',
 	});
@@ -9,6 +10,7 @@ export const getLoginForm = (req, res) => {
 
 export const getRegisterForm = (req, res) => {
 	res.render('index', {
+        path: '/login',
 		content: './auth/register',
 		pageTitle: 'Create Your Your Account',
 	});
