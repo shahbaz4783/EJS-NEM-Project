@@ -58,3 +58,11 @@ export const getJobDetails = async (req, res) => {
 		console.log(error);
 	}
 };
+
+export const getCart = (req, res) => {
+	res.render('index', {
+		path: '/cart',
+		pageTitle: 'Your Cart',
+		content: './shop/cart',
+	});
+};
