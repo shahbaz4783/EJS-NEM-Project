@@ -103,3 +103,12 @@ export const postDeleteCartService = async (req, res) => {
 		res.status(500).json({ message: 'Internal Server Error' });
 	}
 };
+
+
+export const getOrderPage = (req, res) => {
+	res.send('Order Now!')
+}
+
+export const postOrder = (req, res) => {
+	res.redirect('/order')
+}
