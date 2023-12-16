@@ -59,24 +59,32 @@ export const getJobDetails = async (req, res) => {
 	}
 };
 
-export const getCart = (req, res) => {
-	res.render('index', {
-		path: '/cart',
-		pageTitle: 'Your Cart',
-		content: './shop/cart',
-	});
+export const getCart = async (req, res) => {
+	try {
+		await req.user.populate('cart.services.serviceID');
+		const services = req.user.cart.services;
+		res.render('index', {
+			path: '/cart',
+			pageTitle: 'Your Cart',
+			content: './shop/cart',
+			services: services,
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: 'Internal Server Error' });
+	}
 };
+
+
 
 
 export const postCart = async (req, res) => {
 	try {
 		const serviceID = req.body.serviceID;
 		const service = await Service.findById(serviceID);
-		console.log(serviceID);
 		if (!service) {
 			return res.status(404).json({ message: 'Service not found' });
 		}
-
 		await req.user.addToCart(service);
 
 		res.redirect('/cart');
