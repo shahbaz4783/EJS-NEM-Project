@@ -1,8 +1,31 @@
 <section>
-    <%= console.log(services) %>
-    <% for (service of services) { %>
-        <p><%= service.serviceID.title %></p>
-        <p><%= service.quantity %></p>
-    <% } %>
-
+	<table>
+		<thead>
+			<th>Title</th>
+			<th>Rate</th>
+			<th>Total</th>
+			<th>Quantity</th>
+			<th>Action</th>
+		</thead>
+		<tbody>
+			<% for (service of services) { %>
+			<tr>
+				<td><%= service.serviceID.title %></td>
+				<td><%= service.serviceID.price %></td>
+				<td><%= service.serviceID.price * service.quantity %></td>
+				<td><%= service.quantity %></td>
+				<td>
+					<form action="/cart/delete" method="post">
+						<input
+							type="hidden"
+							name="serviceID"
+							value="<%= service.serviceID._id %>"
+						/>
+						<button type="submit">Remove</button>
+					</form>
+				</td>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
 </section>

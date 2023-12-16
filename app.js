@@ -13,12 +13,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use((req, res, next) => {
-    User.findById('65759fdfc24c27c32d0bf39e')
-    .then((user) => {
-        req.user = user;
-        next()
-    })
-    .catch((err) => console.log(err));
+    User.findById('6575a0bc68760ac68114641a')
+			.then((user) => {
+				req.user = user;
+				next();
+			})
+			.catch((err) => console.log(err));
 });
 
 app.use(routes);

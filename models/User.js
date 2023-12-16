@@ -56,6 +56,14 @@ userScheme.methods.addToCart = function (service) {
 	return this.save();
 };
 
+userScheme.methods.removeFromCart = function (serviceID) {
+	const updatedCartServices = this.cart.services.filter((service) => {
+		return service.serviceID.toString() !== serviceID.toString();
+	});
+	this.cart.services = updatedCartServices;
+	return this.save();
+};
+
 const user = mongoose.model('Users', userScheme);
 
 export default user;

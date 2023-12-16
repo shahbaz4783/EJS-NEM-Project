@@ -76,8 +76,6 @@ export const getCart = async (req, res) => {
 };
 
 
-
-
 export const postCart = async (req, res) => {
 	try {
 		const serviceID = req.body.serviceID;
@@ -94,3 +92,14 @@ export const postCart = async (req, res) => {
 	}
 };
 
+export const postDeleteCartService = async (req, res) => {
+	try {
+		const serviceID = req.body.serviceID;
+		await req.user.removeFromCart(serviceID);
+		res.redirect('/cart');
+
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: 'Internal Server Error' });
+	}
+};
