@@ -18,11 +18,11 @@
             </div>
 			<div class="btn-actions">
 				<form action="/cart" method="post">
-					<input type="hidden" name="productID" value="<%= info.id %>" />
+					<input type="hidden" name="serviceID" value="<%= info._id %>" />
 					<input type="submit" name="cart" id="cart" value="Add to cart" />
 				</form>
 				<form action="/checkout" method="post">
-					<input type="hidden" name="productID" value="<%= info.id %>" />
+					<input type="hidden" name="serviceID" value="<%= info._id %>" />
 					<input type="submit" name="checkout" id="checkout" value="Buy Now" />
 				</form>
 			</div>

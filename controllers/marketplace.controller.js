@@ -66,3 +66,23 @@ export const getCart = (req, res) => {
 		content: './shop/cart',
 	});
 };
+
+
+export const postCart = async (req, res) => {
+	try {
+		const serviceID = req.body.serviceID;
+		const service = await Service.findById(serviceID);
+		console.log(serviceID);
+		if (!service) {
+			return res.status(404).json({ message: 'Service not found' });
+		}
+
+		await req.user.addToCart(service);
+
+		res.redirect('/cart');
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: 'Internal Server Error' });
+	}
+};
+

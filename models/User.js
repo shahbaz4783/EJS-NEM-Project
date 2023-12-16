@@ -31,6 +31,31 @@ const userScheme = new mongoose.Schema({
 	},
 });
 
+userScheme.methods.addToCart = function (service) {
+	const cartServiceIndex = this.cart.services.findIndex((cp) => {
+		return cp.serviceID.toString() === service._id.toString();
+	});
+
+	let newQuantity = 1;
+	const updatedCartServices = [...this.cart.services];
+
+	if (cartServiceIndex >= 0) {
+		newQuantity = this.cart.services[cartServiceIndex].quantity + 1;
+		updatedCartServices[cartServiceIndex].quantity = newQuantity;
+	} else {
+		updatedCartServices.push({
+			serviceID: service._id,
+			quantity: newQuantity,
+		});
+	}
+
+	const updatedCart = {
+		services: updatedCartServices,
+	};
+	this.cart = updatedCart;
+	return this.save();
+};
+
 const user = mongoose.model('Users', userScheme);
 
 export default user;
