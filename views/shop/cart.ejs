@@ -8,7 +8,8 @@
 			<th>Action</th>
 		</thead>
 		<tbody>
-			<% for (service of services) { %>
+			<% let totalSum = 0; %> 
+            <% for (service of services) { %>
 			<tr>
 				<td><%= service.serviceID.title %></td>
 				<td><%= service.serviceID.price %></td>
@@ -25,10 +26,14 @@
 					</form>
 				</td>
 			</tr>
-			<% } %>
+			<% totalSum += service.serviceID.price * service.quantity; %> 
+            <% } %>
 		</tbody>
 	</table>
-    <form action="/order" method="post">
-        <button>Order Now</button>
-    </form>
+	<div>
+		<h2><%= totalSum %></h2>
+	</div>
+	<form action="/order" method="post">
+		<button>Order Now</button>
+	</form>
 </section>
