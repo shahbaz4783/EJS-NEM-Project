@@ -1,4 +1,5 @@
 import Job from '../models/Job.js';
+import Order from '../models/Order.js';
 import Service from '../models/Service.js';
 
 export const getAllServices = async (req, res) => {
@@ -109,6 +110,24 @@ export const getOrderPage = (req, res) => {
 	res.send('Order Now!')
 }
 
-export const postOrder = (req, res) => {
-	res.redirect('/order')
-}
+export const postOrder = async (req, res) => {
+	try {
+		await req.user.populate('cart.services.serviceID');
+		const services = req.user.cart.services.map((i) => {
+			return { quantity: i.quantity, service: i.serviceID };
+		});
+
+		const order = new Order({
+			user: {
+				name: req.user.name,
+				userID: req.user,
+			},
+			services: services,
+		});
+		order.save();
+		res.redirect('/order');
+
+	} catch (error) {
+		console.log(error);
+	}
+};
