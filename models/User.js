@@ -64,6 +64,11 @@ userScheme.methods.removeFromCart = function (serviceID) {
 	return this.save();
 };
 
+userScheme.methods.clearCart = function () {
+	this.cart = { services: [] };
+	return this.save();
+};
+
 const user = mongoose.model('Users', userScheme);
 
 export default user;

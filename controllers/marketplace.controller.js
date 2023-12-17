@@ -125,8 +125,9 @@ export const postOrder = async (req, res) => {
 			services: services,
 		});
 		order.save();
+		req.user.clearCart();
 		res.redirect('/order');
-
+		
 	} catch (error) {
 		console.log(error);
 	}

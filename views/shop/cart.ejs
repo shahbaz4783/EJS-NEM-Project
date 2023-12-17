@@ -1,4 +1,5 @@
 <section>
+    <% if (services.length >= 1) { %>
 	<table>
 		<thead>
 			<th>Title</th>
@@ -36,4 +37,7 @@
 	<form action="/order" method="post">
 		<button>Order Now</button>
 	</form>
+    <% } else {%>
+        <h2>Your Cart is Empty</h2>
+        <% } %>
 </section>
