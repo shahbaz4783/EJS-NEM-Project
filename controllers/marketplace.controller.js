@@ -114,7 +114,7 @@ export const postOrder = async (req, res) => {
 	try {
 		await req.user.populate('cart.services.serviceID');
 		const services = req.user.cart.services.map((i) => {
-			return { quantity: i.quantity, service: i.serviceID };
+			return { quantity: i.quantity, service: { ...i.serviceID._doc } };
 		});
 
 		const order = new Order({
