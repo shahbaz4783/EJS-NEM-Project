@@ -22,7 +22,7 @@ export const getRegisterForm = (req, res) => {
 };
 
 export const postLogin = (req, res) => {
-	res.setHeader('Set-Cookie', 'loggedIn=true');
+	req.session.isLoggedIn = true;
 	res.redirect('/');
 };
 
