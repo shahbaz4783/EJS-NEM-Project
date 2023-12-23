@@ -3,6 +3,6 @@ export const getIndexPage = (req, res) => {
 			path: '/',
 			pageTitle: 'Home - SkillHub Connect',
 			content: 'home/index',
-			isAuth: req.isLoggedIn,
+			isAuth: req.session.isLoggedIn,
 		});
 };

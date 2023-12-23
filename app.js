@@ -8,9 +8,7 @@ import { connectDB } from './config/db.js';
 import User from './models/User.js';
 
 const MongoDBStore = connectMongoDBSession(session);
-
 const app = express();
-
 const store = new MongoDBStore({
 	uri: process.env.MONGO_URI,
 	collection: 'sessions',
@@ -27,16 +25,6 @@ app.use(
 		store: store,
 	})
 );
-
-
-app.use((req, res, next) => {
-    User.findById('6575a0bc68760ac68114641a')
-			.then((user) => {
-				req.user = user;
-				next();
-			})
-			.catch((err) => console.log(err));
-});
 
 app.use(routes);
 app.use(error);

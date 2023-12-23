@@ -3,6 +3,7 @@ import {
 	getLoginForm,
 	getRegisterForm,
 	postLogin,
+	postLogout,
 	postNewUser,
 } from '../controllers/auth.controller.js';
 
@@ -13,5 +14,6 @@ router.get('/register', getRegisterForm);
 
 router.post('/login', postLogin);
 router.post('/register', postNewUser);
+router.post('/logout', postLogout);
 
 export default router;

@@ -3,6 +3,6 @@ export const getSupportPage = (req, res) => {
 			path: '/support',
 			pageTitle: 'Support - SkillHub Connect',
 			content: 'support/index',
-			isAuth: req.isLoggedIn,
+			isAuth: req.session.isLoggedIn,
 		});
 }

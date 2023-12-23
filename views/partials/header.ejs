@@ -6,7 +6,7 @@
 	<nav>
 		<ul>
 			<li>
-				<a class=nav "<%= path === '/services' ? 'activeNav' : '' %>" href="/services/all">Browse Services</a>
+				<a class="nav <%= path === '/services' ? 'activeNav' : '' %>" href="/services/all">Browse Services</a>
 			</li>
 			<li>
 				<a class="nav <%= path === '/jobs' ? 'activeNav' : '' %>" href="/jobs/all">Browse Jobs</a>
@@ -16,6 +16,10 @@
 			</li>
 			<li>
 				<a class="nav <%= path === '/login' ? 'activeNav' : '' %>" href="/login">Login</a>
+
+				<form action="/logout" method="post">
+					<button type="submit">Logout</button>
+				</form>
 			</li>
 		</ul>
 	</nav>
