@@ -1,15 +1,14 @@
+import service from '../models/Service.js';
 import User from '../models/User.js';
+import bcrypt from 'bcrypt';
 
 export const getLoginForm = (req, res) => {
-//   const cookie = req.get('Cookie');
-//   const isLoggedIn = cookie ? cookie.trim().split('=')[1] : false;
-
-  res.render('index', {
-    path: '/login',
-    content: './auth/login',
-    pageTitle: 'Login to Your Account',
-    isAuth: false,
-  });
+	res.render('index', {
+		path: '/login',
+		content: './auth/login',
+		pageTitle: 'Login to Your Account',
+		isAuth: false,
+	});
 };
 
 export const getRegisterForm = (req, res) => {
@@ -21,32 +20,59 @@ export const getRegisterForm = (req, res) => {
 	});
 };
 
-export const postLogin = (req, res) => {
-		User.findById('6575a0bc68760ac68114641a')
-			.then((user) => {
-				req.session.isLoggedIn = true;
-				req.session.user = user;
-				res.redirect('/');
-			})
-			.catch((err) => console.log(err));
-};
-
-export const postLogout = (req, res) => {
-	req.session.destroy(() => {
-		res.redirect('/')
-	})
-};
-
 export const postNewUser = async (req, res) => {
 	const name = req.body.name;
 	const email = req.body.email;
 	const password = req.body.password;
-	const newUser = new User({ name, email, password });
 	try {
-		await newUser.save();
-		res.redirect('/');
+		const existingUser = await User.findOne({ email: email });
+		if (existingUser) {
+			res.status(400).json({ error: 'Email already exists' });
+		} else {
+			const saltRounds = 10;
+			const hashedPassword = await bcrypt.hash(password, saltRounds);
 
+			const newUser = new User({
+				name: name,
+				email: email,
+				password: hashedPassword,
+				cart: { service: [] },
+			});
+			await newUser.save();
+			res.redirect('/login');
+		}
 	} catch (error) {
 		console.log(error);
 	}
+};
+
+export const postLogin = async (req, res) => {
+	try {
+		const email = req.body.email;
+		const password = req.body.password;
+
+		const user = await User.findOne({ email: email });
+
+		if (user) {
+			const passwordMatch = await bcrypt.compare(password, user.password);
+			if (passwordMatch) {
+				req.session.isLoggedIn = true;
+				req.session.user = user;
+				res.redirect('/');
+			} else {
+				res.status(401).send('Your Email or Password is Incorrect');
+			}
+		} else {
+			res.status(404).send('User not found on database');
+		}
+	} catch (error) {
+		console.error(error);
+		res.status(500).send('Internal Server Error');
+	}
+};
+
+export const postLogout = (req, res) => {
+	req.session.destroy(() => {
+		res.redirect('/');
+	});
 };
