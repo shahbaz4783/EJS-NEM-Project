@@ -6,10 +6,11 @@ export const getAllServices = async (req, res) => {
 	try {
 		const allServices = await Service.find();
 		res.render('index', {
-            path: '/services',
+			path: '/services',
 			content: './services/service-list',
 			services: allServices,
 			pageTitle: 'Browse All Services',
+			isAuth: req.isLoggedIn,
 		});
 	} catch (error) {
 		console.log(error);
@@ -25,6 +26,7 @@ export const getServiceDetails = async (req, res) => {
 			content: './services/service-details',
 			info: serviceDetails,
 			pageTitle: serviceDetails.title,
+			isAuth: req.isLoggedIn,
 		});
 	} catch (error) {
 		console.log(error);
@@ -39,6 +41,7 @@ export const getAllJobs = async (req, res) => {
 			content: './jobs/job-list',
 			jobs: allJobs,
 			pageTitle: 'Browse All Job Listing',
+			isAuth: req.isLoggedIn,
 		});
 	} catch (error) {
 		console.log(error);
@@ -54,6 +57,7 @@ export const getJobDetails = async (req, res) => {
 			content: './jobs/job-details',
 			info: jobDetails,
 			pageTitle: jobDetails.title,
+			isAuth: req.isLoggedIn,
 		});
 	} catch (error) {
 		console.log(error);
@@ -69,6 +73,7 @@ export const getCart = async (req, res) => {
 			pageTitle: 'Your Cart',
 			content: './shop/cart',
 			services: services,
+			isAuth: req.isLoggedIn,
 		});
 	} catch (error) {
 		console.log(error);

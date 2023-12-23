@@ -6,6 +6,7 @@ export const getDashboard = (req, res) => {
 		content: './dashboard',
 		pageTitle: 'Admin Panel',
 		path: '/',
+		isAuth: req.isLoggedIn,
 	});
 };
 
@@ -18,6 +19,7 @@ export const getAddService = (req, res) => {
 		pageTitle: 'Admin Panel',
 		path: '/service/add',
 		editing: false,
+		isAuth: req.isLoggedIn,
 	});
 };
 
@@ -29,6 +31,7 @@ export const getAllServices = async (req, res) => {
 			pageTitle: 'Manage Your Services',
 			path: '/services/all',
 			services: services,
+			isAuth: req.isLoggedIn,
 		});
 	} catch (err) {
 		console.error(err);
@@ -50,6 +53,7 @@ export const getEditService = async (req, res) => {
 			path: '/service/add',
 			pageTitle: 'Edit Your Service Details',
 			serviceInfo: service,
+			isAuth: req.isLoggedIn,
 		});
 	} catch (err) {
 		console.error(err);
@@ -63,6 +67,7 @@ export const getSettings = async (req, res) => {
 			content: './settings',
 			pageTitle: 'Admin Panel',
 			path: '/settings',
+			isAuth: req.isLoggedIn,
 		});
 	} catch (err) {
 		console.error(err);
@@ -138,6 +143,7 @@ export const getAllJobs = async (req, res) => {
 			path: '/jobs/all',
 			pageTitle: 'Manage Your Job Listing',
 			jobs: jobs,
+			isAuth: req.isLoggedIn,
 		});
 	} catch (error) {
 		console.error(err);
@@ -151,6 +157,7 @@ export const getAddJob = (req, res) => {
 		pageTitle: 'Admin Panel',
 		path: '/job/add',
 		editing: false,
+		isAuth: req.isLoggedIn,
 	});
 };
 
@@ -168,6 +175,7 @@ export const getEditJob = async (req, res) => {
 			path: '/job/add',
 			pageTitle: 'Edit Your Job Listing',
 			jobInfo: job,
+			isAuth: req.isLoggedIn,
 		});
 	} catch (err) {
 		console.error(err);

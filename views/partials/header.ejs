@@ -2,6 +2,7 @@
 	<div id="logo">
 		<a href="/">SkillHub Connect</a>
 	</div>
+
 	<nav>
 		<ul>
 			<li>
@@ -28,7 +29,9 @@
 		/>
 		<div>
 			<a href="/cart"><img src="/assets/cart.svg" alt="" /></a>
+			<% if (isAuth) { %>
 			<a href="/admin"><img src="/assets/user.svg" alt="" /></a>
+			<% } %>
 		</div>
 	</article>
 </header>
