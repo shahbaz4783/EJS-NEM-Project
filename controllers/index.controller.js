@@ -4,5 +4,6 @@ export const getIndexPage = (req, res) => {
 			pageTitle: 'Home - SkillHub Connect',
 			content: 'home/index',
 			isAuth: req.session.isLoggedIn,
+			user: req.user,
 		});
 };

@@ -1,6 +1,8 @@
-@mixin flex-column {
+@mixin flex-column($gap) {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: $gap;
 }
 
 @mixin shadow-1 {

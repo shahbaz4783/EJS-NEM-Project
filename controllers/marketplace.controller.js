@@ -7,7 +7,7 @@ export const getAllServices = async (req, res) => {
 		const allServices = await Service.find();
 		res.render('index', {
 			path: '/services',
-			content: './services/service-list',
+			content: './services/index',
 			services: allServices,
 			pageTitle: 'Browse All Services',
 			isAuth: req.session.isLoggedIn,

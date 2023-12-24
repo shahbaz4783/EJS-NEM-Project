@@ -1,0 +1,193 @@
+@use '../utils/mixins' as m;
+
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: stretch;
+
+    .text-container {
+        @include m.flex-column(3em);
+        flex: 7;
+        margin: auto;
+        height: 100%;
+
+        .heading {
+            font-size: 4em;
+        }
+
+        .para {
+
+            p {
+                font-size: 1.4em;
+                margin-bottom: 0;
+            }
+        }
+
+        .slogan {
+            @include m.flex-column(1.6em);
+
+        }
+
+        .company-icons-wrapper {
+            h3 {
+                font-size: 1em;
+            }
+            div {
+                display: flex;
+                gap: 1em;
+            }
+        }
+        
+    }
+    .image {
+        flex: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .image{
+            display: none;
+        }
+    }
+}
+
+.popular_categories {
+    display: flex;
+    flex-direction: column;
+
+    .box-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 1.5em;
+            flex-wrap: wrap;
+
+            .box {
+                flex: 1;
+                border: 2px solid black;
+                display: flex;
+                flex-direction: column;
+                padding: 1em;
+                gap: 1em;
+                border-radius: 0.6em;
+
+                div {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    display: flex;
+                    margin: auto;
+                    background-color: #cbdae8;
+                    
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                p {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+
+    .three-box-layout {
+	display: flex;
+	flex-direction: column;
+
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		gap: 2em;
+		justify-content: space-between;
+
+		.sale-box {
+			position: relative;
+			flex: 1;
+			display: flex;
+
+			img {
+				width: 100%;
+				aspect-ratio: 5/4;
+				border-radius: 0.8em;
+			}
+
+			div {
+				position: absolute;
+				bottom: 0;
+				color: white;
+				margin: 0 1.2em;
+			}
+		}
+
+		.about-box {
+			border: 2px solid black;
+			padding: 0.8em;
+			border-radius: 0.8em;
+            flex: auto;
+
+			.imgDiv {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				display: flex;
+				background-color: #cbdae8;
+
+				img {
+					width: 100%;
+				}
+			}
+
+             h3 {
+                margin-bottom: 0.2em;
+                margin-top: 0.4em;
+            }
+		}
+	}
+}
+
+.feature {
+    display: flex;
+    gap: 2em;
+    justify-content: space-between;
+
+    .bigImg {
+        border-radius: 0.8em;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        
+        img {
+            width: 100%;
+            aspect-ratio: 4/3;
+        }
+    }
+
+    .feat-product-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+
+        .feat-product {
+            display: flex;
+            gap: 1em;
+
+            .product-card {
+                border: 1px solid black;
+                padding: 0.8em;
+
+                div {
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

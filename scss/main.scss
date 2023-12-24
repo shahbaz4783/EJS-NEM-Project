@@ -12,10 +12,12 @@
 @forward 'layout/forms';
 @forward 'layout/sidebar';
 @forward 'layout/grid';
+@forward 'layout/flex';
 
 @forward 'pages/home';
 @forward 'pages/contact';
 @forward 'pages/service-details';
+@forward 'pages/service';
 
 @forward 'themes/theme';
 @forward 'themes/admin';

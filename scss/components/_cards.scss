@@ -2,7 +2,7 @@
 
 // Card 1
 .admin-service-card {
-  @include m.flex-column;
+  @include m.flex-column(0.2em);
   @include m.shadow-1;
 	width: 100%;
   min-height: fit-content;
@@ -57,16 +57,14 @@
 .profile-card {
 	width: 90%;
 	margin: auto;
-	@include m.flex-column;
-	gap: 1em;
+	@include m.flex-column(1em);
 	text-align: center;
 
 	article {
-		@include m.flex-column;
-		gap: 0.4em;
+		@include m.flex-column(0.4em);
 
 		div {
-			@include m.flex-column;
+			@include m.flex-column(0.6em);
 			width: 40%;
 			margin: auto;
 
@@ -81,16 +79,15 @@
 
 // Card 2
 .add-card {
-  @include m.flex-column;
+  @include m.flex-column(0.6em);
   @include m.shadow-1;
   border-radius: 0.8em;
   justify-content: center;
   align-items: center;
-  gap: 0.6em;
   min-height: 42dvh;
 
   .icon-container {
-    @include m.flex-column;
+    @include m.flex-column(0.2em);
     width: 40%;
 
 

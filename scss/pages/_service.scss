@@ -1,0 +1,16 @@
+.service-page {
+    display: flex;
+    gap: 2em;
+    align-items: start;
+    
+
+    aside {
+       flex: 1;
+       position: sticky;
+       top: 0;
+    }
+
+    section {
+        flex: 5;
+    }
+}
