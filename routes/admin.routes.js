@@ -15,26 +15,27 @@ import {
 	postEditJob,
 	postEditService,
 } from '../controllers/admin.controller.js';
+import { isAuth } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.get('/', getDashboard);
-router.get('/services/all', getAllServices);
-router.get('/service/add', getAddService);
-router.get('/service/edit/:serviceID', getEditService);
+router.get('/', isAuth, getDashboard);
+router.get('/services/all', isAuth, getAllServices);
+router.get('/service/add', isAuth, getAddService);
+router.get('/service/edit/:serviceID', isAuth, getEditService);
 
-router.post('/service/add', postAddService);
-router.post('/service/edit', postEditService);
-router.post('/service/delete', deleteService);
+router.post('/service/add', isAuth, postAddService);
+router.post('/service/edit', isAuth, postEditService);
+router.post('/service/delete', isAuth, deleteService);
 
-router.get('/jobs/all', getAllJobs);
-router.get('/job/add', getAddJob);
-router.get('/job/edit/:jobID', getEditJob);
+router.get('/jobs/all', isAuth, getAllJobs);
+router.get('/job/add', isAuth, getAddJob);
+router.get('/job/edit/:jobID', isAuth, getEditJob);
 
-router.post('/job/add', postAddJob);
-router.post('/job/edit', postEditJob);
-router.post('/job/delete', deleteJob);
+router.post('/job/add', isAuth, postAddJob);
+router.post('/job/edit', isAuth, postEditJob);
+router.post('/job/delete', isAuth, deleteJob);
 
-router.get('/settings', getSettings);
+router.get('/settings', isAuth, getSettings);
 
 export default router;

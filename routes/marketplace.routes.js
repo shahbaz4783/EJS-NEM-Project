@@ -10,6 +10,7 @@ import {
 	postDeleteCartService,
 	postOrder,
 } from '../controllers/marketplace.controller.js';
+import { isAuth } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
@@ -23,7 +24,7 @@ router.get('/cart', getCart)
 router.post('/cart', postCart)
 router.post('/cart/delete', postDeleteCartService)
 
-router.get('/order', getOrderPage);
-router.post('/order', postOrder);
+router.get('/order', isAuth, getOrderPage);
+router.post('/order', isAuth, postOrder);
 
 export default router;

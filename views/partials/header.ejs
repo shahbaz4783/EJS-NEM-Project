@@ -14,13 +14,11 @@
 			<li>
 				<a class="nav <%= path === '/support' ? 'activeNav' : '' %>" href="/support">Support</a>
 			</li>
+			<% if (!isAuth) {%>
 			<li>
 				<a class="nav <%= path === '/login' ? 'activeNav' : '' %>" href="/login">Login</a>
-
-				<form action="/logout" method="post">
-					<button type="submit">Logout</button>
-				</form>
 			</li>
+			<% } %>
 		</ul>
 	</nav>
 	<article class="user-actions">

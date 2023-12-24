@@ -11,8 +11,7 @@
 			</a>
 			<div class="card-footer">
 				<span class="text-title">$ <%= service.price %></span>
-
-				<form class="card-button" action="/cart" method="post">
+				<form class="card-button" action="/<%= isAuth ? 'cart' : 'login' %>" method="<%= isAuth ? 'post' : 'get' %>">
 					<input type="hidden" name="serviceID" value="<%= service._id %>" />
 					<button type="submit" id="cart">
 						<img src="/assets/cart.svg" alt="" />

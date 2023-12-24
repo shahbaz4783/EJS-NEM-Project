@@ -17,7 +17,7 @@
                 <h3>$ <%= info.price %></h3>
             </div>
 			<div class="btn-actions">
-				<form action="/cart" method="post">
+				<form class="card-button" action="/<%= isAuth ? 'cart' : 'login' %>" method="<%= isAuth ? 'post' : 'get' %>">
 					<input type="hidden" name="serviceID" value="<%= info._id %>" />
 					<input type="submit" name="cart" id="cart" value="Add to cart" />
 				</form>
