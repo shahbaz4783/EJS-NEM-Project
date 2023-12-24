@@ -13,7 +13,7 @@ export const getLoginForm = (req, res) => {
 
 export const getRegisterForm = (req, res) => {
 	res.render('index', {
-		path: '/login',
+		path: '/register',
 		content: './auth/register',
 		pageTitle: 'Create Your Your Account',
 		isAuth: false,

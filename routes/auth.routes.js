@@ -7,7 +7,7 @@ import {
 	postNewUser,
 } from '../controllers/auth.controller.js';
 
-import { isAuth, redirectIfLoggedIn } from '../middleware/authMiddleware.js';
+import { isAuth, redirectIfLoggedIn } from '../middleware/auth.middleware.js';
 
 const router = express.Router();
 

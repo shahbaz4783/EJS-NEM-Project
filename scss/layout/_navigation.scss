@@ -1,62 +1,57 @@
 @use '../utils/mixins' as m;
 
+// Main Navigation
 #navigation {
-	display: flex;
-	height: 10vh;
-	align-items: center;
-	justify-content: space-between;
-	gap: 20px;
-	width: 100vw;
-	transition: background-color 0.4s ease;
-	background-color: transparent;
-	margin-right: 20px;
 	@include m.shadow-2;
 
-	#logo {
-		width: 10%;
-
-		img {
-			width: 100%;
-		}
-	}
-
-	&:last-child {
+	nav {
+		width: 95%;
+		margin: auto;
 		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+		transition: background-color 0.4s ease;
+		background-color: transparent;
+
+		
+
+		&:last-child {
+			display: flex;
+		}
 	}
 }
 
-nav {
+.pages {
 	flex: 4;
 
-	ul {
+	display: flex;
+
+	li {
+		list-style: none;
 		display: flex;
+		justify-content: space-evenly;
 
-		li {
-			list-style: none;
-			display: flex;
-			justify-content: space-evenly;
+		.nav {
+			text-decoration: none;
+			margin: 0 1.2em;
+			padding: 0.5em 0;
+			position: relative;
+			isolation: isolate;
 
-			.nav {
-				text-decoration: none;
-				margin: 0 1.2em;
-                padding: 0.5em 0;
-				position: relative;
-				isolation: isolate;
+			&::after {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				border-bottom: 2px solid var(--primary-color-dark);
+				inset: 0;
+				scale: 0 1;
+				transition: scale 0.6s;
+			}
 
-				&::after {
-					content: '';
-					position: absolute;
-					z-index: -1;
-					border-bottom: 2px solid var(--primary-color-dark);
-					inset: 0;
-					scale: 0 1;
-					transition: scale 0.6s;
-				}
-
-				&:hover::after,
-				&:focus-visible::after {
-					scale: 1 1;
-				}
+			&:hover::after,
+			&:focus-visible::after {
+				scale: 1 1;
 			}
 		}
 	}
@@ -65,7 +60,7 @@ nav {
 .user-actions {
 	flex: 3;
 	display: flex;
-	justify-content: center;
+	justify-content: end;
 	align-items: center;
 	list-style: none;
 	gap: 1em;
@@ -129,5 +124,5 @@ nav {
 }
 
 .activeNav {
-    color: var(--primary-color-dark) !important;
+	color: var(--primary-color-dark) !important;
 }

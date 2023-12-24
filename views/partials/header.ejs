@@ -1,39 +1,50 @@
 <header id="navigation">
-	<div id="logo">
-		<a href="/">SkillHub Connect</a>
-	</div>
-
 	<nav>
-		<ul>
-			<li>
-				<a class="nav <%= path === '/services' ? 'activeNav' : '' %>" href="/services/all">Browse Services</a>
-			</li>
-			<li>
-				<a class="nav <%= path === '/jobs' ? 'activeNav' : '' %>" href="/jobs/all">Browse Jobs</a>
-			</li>
-			<li>
-				<a class="nav <%= path === '/support' ? 'activeNav' : '' %>" href="/support">Support</a>
-			</li>
-			<% if (!isAuth) {%>
-			<li>
-				<a class="nav <%= path === '/login' ? 'activeNav' : '' %>" href="/login">Login</a>
-			</li>
-			<% } %>
-		</ul>
-	</nav>
-	<article class="user-actions">
-		<input
-			placeholder="Search for services..."
-			class="search"
-			name="text"
-			type="search"
-			autocomplete="off"
-		/>
-		<div>
-			<a href="/cart"><img src="/assets/cart.svg" alt="" /></a>
-			<% if (isAuth) { %>
-			<a href="/admin"><img src="/assets/user.svg" alt="" /></a>
-			<% } %>
+		<div id="logo">
+			<a class="logo" href="/">SkillHub Connect</a>
 		</div>
-	</article>
+
+			<ul class="pages">
+				<li>
+					<a
+						class="nav <%= path === '/services' ? 'activeNav' : '' %>"
+						href="/services/all"
+						>Browse Services</a
+					>
+				</li>
+				<li>
+					<a
+						class="nav <%= path === '/jobs' ? 'activeNav' : '' %>"
+						href="/jobs/all"
+						>Browse Jobs</a
+					>
+				</li>
+				<li>
+					<a
+						class="nav <%= path === '/support' ? 'activeNav' : '' %>"
+						href="/support"
+						>Support</a
+					>
+				</li>
+			</ul>
+		</div>
+		<article class="user-actions">
+			<input
+				placeholder="Search for services..."
+				class="search"
+				name="text"
+				type="search"
+				autocomplete="off"
+			/>
+			<div>
+				<% if (isAuth) { %>
+				<a href="/cart"><img src="/assets/cart.svg" alt="" /></a>
+				<a href="/admin"><img src="/assets/user.svg" alt="" /></a>
+				<% } else {%>
+				<a class="nav <%= path === '/login' ? 'activeNav' : '' %>" href="/login">Login</a>
+				<a class="nav <%= path === '/register' ? 'activeNav' : '' %>" href="/register">Register</a>
+				<% } %>
+			</div>
+		</article>
+	</nav>
 </header>

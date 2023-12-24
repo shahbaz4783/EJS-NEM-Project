@@ -10,7 +10,7 @@ import {
 	postDeleteCartService,
 	postOrder,
 } from '../controllers/marketplace.controller.js';
-import { isAuth } from '../middleware/authMiddleware.js';
+import { isAuth } from '../middleware/auth.middleware.js';
 
 const router = express.Router();
 

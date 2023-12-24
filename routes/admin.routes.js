@@ -15,7 +15,7 @@ import {
 	postEditJob,
 	postEditService,
 } from '../controllers/admin.controller.js';
-import { isAuth } from '../middleware/authMiddleware.js';
+import { isAuth } from '../middleware/auth.middleware.js';
 
 const router = express.Router();
 
