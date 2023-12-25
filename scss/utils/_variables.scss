@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Noto+Sans&family=Open+Sans&family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 
 // Colors
 :root {
 	--primary-color: black;
 	--primary-color-light: yellow;
-	--primary-color-dark: blue;
+	--primary-color-dark: #645bff;
 	--bg-color: #ffffff;
 	--link-color: #2ecc71;
 	--bg-color-dark: #00000029;
+	--color-dull: #9aaa97;
 }
 
 // Fonts
 :root {
 	--primary-font: 'Inter', sans-serif;
+	--serif-font: 'Noto Serif', serif;
 	--secondary-font: 'Noto Sans', sans-serif;
     --heading-font: 'Open Sans', sans-serif;
     --body-font: 'Poppins', sans-serif;
