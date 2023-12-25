@@ -110,14 +110,15 @@
 	}
 }
 
-// About Layout
-.feature {
+// Info Layout
+.info-section {
     @include m.flex-column(1.2em);
     @media (min-width: 481px) {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: row;
+        align-items: stretch;
         gap: 2em;
     }
 
@@ -125,8 +126,8 @@
         flex: 3;
 		border-radius: 0.4em;
 		overflow: hidden;
-		aspect-ratio: 4/3;
-        height: 100%;
+		aspect-ratio: 1/1;
+        object-fit: cover;
 
         @media (min-width: 481px) and (max-width: 920px) {
             display: none;
@@ -135,14 +136,15 @@
 		img {
             width: 100%;
 			aspect-ratio: 4/3;
+            height: 100%
 		}
 	}
 
-	.feat-product-container {
+	.text-container {
 		@include m.flex-column(1.8em);
         flex: 4;
         
-        .texts {
+        .head {
             @include m.flex-column(1em);
             align-items: flex-start;
             
@@ -154,9 +156,10 @@
             }
         }
         
-		.feat-product {
+		.list-wrapper {
             @include m.flex-column(0.6em);
-			.product-card {
+
+			.list-item {
                 background-color: var(--bg-color2);
                 display: flex;
                 gap: 0.6em;
