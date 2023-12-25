@@ -1,13 +1,24 @@
 @mixin flex-column($gap) {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: $gap;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: $gap;
 }
 
 @mixin shadow-1 {
-    box-shadow: var(--bg-color-dark) 0px 1px 4px;
+	box-shadow: var(--bg-color-dark) 0px 1px 4px;
 }
 
 @mixin shadow-2 {
-box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;}
+	box-shadow: #091e4240 0px 1px 1px, #091e4221 0px 0px 1px 1px;
+}
+
+@mixin heading-font {
+	font-size: clamp(2em, 3vw, 4em);
+  font-family: var(--heading-font);
+}
+
+@mixin para-font {
+	font-size: clamp(1em, 1.4vw, 1.8em);
+  font-family: var(--body-font);
+}
