@@ -115,10 +115,32 @@ margin: 1em 0;
 .com-testimonial {
   color: white;
   padding: 1.4em;
+  border-radius: 0.8em;
+  max-width: 25em;
+
 
   .text-content {
-
     @include m.flex-column(1em);
+  }
+
+  .com-stats {
+    h2 {
+      font-size: 1.2rem;
+      border-bottom: 1px solid #fff;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+    }
+    .com-stats-texts {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 370px) {
+      .com-stats-texts {
+        flex-direction: column;
+      }
+    }
+
   }
 
   h3 {
