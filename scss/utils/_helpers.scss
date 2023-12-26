@@ -1,24 +1,38 @@
+@use './mixins' as m;
+
 .logo {
-  font-size: 1.3em;
-  padding: 1em 0;
-  font-family: var(--secondary-font);
-  text-align: left;
+	font-size: 1.3em;
+	padding: 1em 0;
+	font-family: var(--secondary-font);
+	text-align: left;
 }
 
 .img-container {
-		img {
-			width: 100%;
-      object-fit: cover;
-      aspect-ratio: 5/3;
-      mix-blend-mode: multiply;
-		}
-
-  }
+	img {
+		width: 100%;
+		object-fit: cover;
+		aspect-ratio: 5/3;
+		mix-blend-mode: multiply;
+	}
+}
 
 .form-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 90dvh;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 90dvh;
+	justify-content: center;
+}
+
+// Layout Heading
+.head {
+	@include m.flex-column(1em);
+	align-items: flex-start;
+
+	h2 {
+		@include m.heading-font;
+	}
+	p {
+		@include m.para-font;
+	}
 }

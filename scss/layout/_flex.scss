@@ -144,17 +144,7 @@
 		@include m.flex-column(1.8em);
         flex: 4;
         
-        .head {
-            @include m.flex-column(1em);
-            align-items: flex-start;
-            
-            h2 {
-                @include m.heading-font;
-            }
-            p {
-                @include m.para-font;
-            }
-        }
+        
         
 		.list-wrapper {
             @include m.flex-column(0.6em);
@@ -183,4 +173,11 @@
 			}
 		}
 	}
+}
+
+
+// Comapny Testimonial Layout
+
+.com-test-section {
+    @include m.flex-column(2em)
 }

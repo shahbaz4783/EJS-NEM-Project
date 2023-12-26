@@ -110,3 +110,28 @@ margin: 1em 0;
   margin-bottom: 0.2em;
 }
 }
+
+// Card 4
+.com-testimonial {
+  color: white;
+  padding: 1.4em;
+
+  .text-content {
+
+    @include m.flex-column(1em);
+  }
+
+  h3 {
+    font-size: 1.6em;
+  }
+
+  &:nth-child(1) {
+    background-color: var(--primary-color-dark);
+  }
+  &:nth-child(2) {
+    background-color: green;
+  }
+  &:nth-child(3) {
+    background-color: blue;
+  }
+}
