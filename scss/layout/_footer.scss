@@ -1,4 +1,35 @@
 .footer {
-    background-color: aliceblue;
-    color: black;
+    background-color: var(--primary-color);
+    color: #fff;
+    margin-top: 2em;
+    padding: 2em 0;
+
+    section {
+        width: 90%;
+        margin: auto;
+    }
+
+     .useful-links-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        article {
+            width: clamp(10em, 10vw, 15em);
+        }
+    }
+    .social-copy-container {
+
+        .social-media {
+            margin: 1.8em 0;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+
+        .copyright-year {
+            border-top: 1px solid #fff;
+            padding-top: 1.8em;
+        }
+    }
 }
