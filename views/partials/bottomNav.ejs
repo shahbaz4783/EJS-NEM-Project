@@ -1,0 +1,33 @@
+<nav class="bottom-navigation">
+	<ul class="bottom-nav-links">
+			<a
+				class="nav <%= path === '/' ? 'activeNav' : '' %>"
+				href="/"
+				>
+				<img src="/assets/nav-icons/home.svg" alt="">
+				Home
+				</a
+			>
+			<a class="nav <%= path === '/services' ? 'activeNav' : '' %>" href="/services/all"
+				>
+				<img src="/assets/nav-icons/service.svg" alt="">
+				Services</a
+			>
+
+			<a class="nav <%= path === '/jobs' ? 'activeNav' : '' %>" href="/jobs/all"
+				>
+				<img src="/assets/nav-icons/job.svg" alt="">
+				Jobs</a
+			>
+			<a class="nav <%= path === '/cart' ? 'activeNav' : '' %>" href="/cart"
+				>
+				<img src="/assets/nav-icons/wishlist.svg" alt="">
+				Wishlist</a
+			>
+			<a class="nav <%= path === '/admin' ? 'activeNav' : '' %>" href="/admin"
+				>
+				<img src="/assets/nav-icons/profile.svg" alt="">
+				Profile</a
+			>
+	</ul>
+</nav>

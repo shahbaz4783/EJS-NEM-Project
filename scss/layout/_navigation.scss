@@ -3,7 +3,6 @@
 // Main Navigation
 #navigation {
 	@include m.shadow-2;
-
 	nav {
 		width: 95%;
 		margin: auto;
@@ -22,7 +21,6 @@
 
 .pages {
 	flex: 4;
-
 	display: flex;
 
 	li {
@@ -51,17 +49,11 @@
 			&:focus-visible::after {
 				scale: 1 1;
 			}
+
+			@media (max-width: 850px) {
+				display: none;
+			}
 		}
-	}
-
-	@media (max-width: 768px) {
-		position: fixed;
-		bottom: 0;
-		background-color: var(--color-dull);
-		left: 0;
-		margin: 0;
-
-		z-index: 100;
 	}
 }
 
@@ -93,10 +85,7 @@
 		display: flex;
 		gap: 1em;
 		justify-content: space-evenly;
-	}
-
-	@media (max-width: 768px) {
-		.search{
+		@media (max-width: 850px) {
 			display: none;
 		}
 	}
@@ -106,8 +95,8 @@
 	height: 100dvh;
 	flex: 1.5;
 	justify-content: center;
-	  position: sticky;
-  top: 0;
+	position: sticky;
+	top: 0;
 
 	nav {
 		ul {
@@ -141,4 +130,38 @@
 
 .activeNav {
 	color: var(--primary-color-dark) !important;
+}
+
+// Bottom Navigation
+
+.bottom-navigation {
+	display: none;
+
+	@media (max-width: 850px) {
+		display: flex;
+		justify-content: center;
+		position: sticky;
+		bottom: 0;
+		z-index: 200;
+		background-color: whitesmoke;
+
+		.bottom-nav-links {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 95%;
+			max-width: 30em;
+		}
+
+		a {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			img {
+				width: 22px;
+				height: 22px;
+			}
+		}
+	}
 }
