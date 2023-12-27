@@ -1,0 +1,19 @@
+@use '../utils/mixins' as m;
+
+.job-listing-page {
+    @include m.flex-column(3em);
+    align-items: center;
+    
+    .job-card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
+        width: 90%;
+    }
+
+    @media (max-width: 1200px) {
+        .job-card-container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

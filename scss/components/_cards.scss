@@ -2,55 +2,53 @@
 
 // Card 1
 .admin-service-card {
-  @include m.flex-column(0.2em);
-  @include m.shadow-1;
+	@include m.flex-column(0.2em);
+	@include m.shadow-1;
 	width: 100%;
-  min-height: fit-content;
+	min-height: fit-content;
 	border-radius: 0.8em;
 	backdrop-filter: blur(0.8em);
 	transition: 0.5s ease-in-out;
 	cursor: pointer;
-  overflow: hidden;
+	overflow: hidden;
 
-		.text-container {
-			flex: 8;
-      width: 90%;
-      margin: auto;
-			font-family: 'Poppins' sans-serif;
+	.text-container {
+		flex: 8;
+		width: 90%;
+		margin: auto;
+		font-family: 'Poppins' sans-serif;
 
+		.textContent {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
 
-			.textContent {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
+	.service-bottom-container {
+		display: flex;
+		align-items: center;
+		padding: 0.6em 0;
+		justify-content: space-between;
+		width: 90%;
+		margin: auto;
+
+		.service-price {
+			margin: 0;
+			font-size: 1.3em;
 		}
 
+		.buttons {
+			display: flex;
+			gap: 0.6em;
+		}
 
-.service-bottom-container {
-  display: flex;
-  align-items: center;
-  padding: 0.6em 0;
-  justify-content: space-between;
-  width: 90%;
-  margin: auto;
-
-  .service-price {
-    margin: 0;
-    font-size: 1.3em;
-  }
-
-  .buttons {
-    display: flex;
-    gap: 0.6em;
-  }
-
-  form {
-    button {
-      all: unset;
-    }
-  }
-}
+		form {
+			button {
+				all: unset;
+			}
+		}
+	}
 }
 
 // Card 2
@@ -76,84 +74,101 @@
 	}
 }
 
-
 // Card 2
 .add-card {
-  @include m.flex-column(0.6em);
-  @include m.shadow-1;
-  border-radius: 0.8em;
-  justify-content: center;
-  align-items: center;
-  min-height: 42dvh;
+	@include m.flex-column(0.6em);
+	@include m.shadow-1;
+	border-radius: 0.8em;
+	justify-content: center;
+	align-items: center;
+	min-height: 42dvh;
 
-  .icon-container {
-    @include m.flex-column(0.2em);
-    width: 40%;
+	.icon-container {
+		@include m.flex-column(0.2em);
+		width: 40%;
 
-
-    img {
-      width: 100%;
-    }
-  }
+		img {
+			width: 100%;
+		}
+	}
 }
-
 
 // card 3
 .job-card {
-@include m.shadow-1;
-border-radius: 0.6em;
-padding: 1em;
-margin: 1em 0;
+	@include m.flex-column(1.2em);
+	@include m.shadow-2;
+	border-radius: 0.6em;
+	padding: 1em;
 
-.text-title {
-  font-size: 1.4em;
-  margin-bottom: 0.2em;
-}
+  .post-date {
+    color: #9aaa97;
+  }
+
+  .tags {
+    span {
+      border-radius: 1.2em;
+      padding: 0.4em;
+      color: #5e6d55;
+      background-color: #f2f7f2;
+    }
+  }
+
+	.budget-exp {
+		display: flex;
+		gap: 5em;
+
+		h3 {
+			font-size: 1em;
+		}
+
+		p {
+			font-size: 1em;
+			color: var(--color-dull);
+		}
+	}
 }
 
 // Card 4
 .com-testimonial {
-  color: white;
-  padding: 1.4em;
-  border-radius: 0.8em;
-  max-width: 30em;
+	color: white;
+	padding: 1.4em;
+	border-radius: 0.8em;
+	max-width: 30em;
 
+	.text-content {
+		@include m.flex-column(1em);
+	}
 
-  .text-content {
-    @include m.flex-column(1em);
-  }
+	.com-stats {
+		h2 {
+			font-size: 1.2rem;
+			border-bottom: 1px solid #fff;
+			padding-bottom: 1em;
+			margin-bottom: 1em;
+		}
+		.com-stats-texts {
+			display: flex;
+			justify-content: space-between;
+		}
 
-  .com-stats {
-    h2 {
-      font-size: 1.2rem;
-      border-bottom: 1px solid #fff;
-      padding-bottom: 1em;
-      margin-bottom: 1em;
-    }
-    .com-stats-texts {
-      display: flex;
-      justify-content: space-between;
-    }
+		@media (max-width: 370px) {
+			.com-stats-texts {
+				flex-direction: column;
+			}
+		}
+	}
 
-    @media (max-width: 370px) {
-      .com-stats-texts {
-        flex-direction: column;
-      }
-    }
+	h3 {
+		font-size: 1.6em;
+	}
 
-  }
-
-  h3 {
-    font-size: 1.6em;
-  }
-
-  &:nth-child(1) {
-    background-color: var(--primary-color-dark);
-  }
-  &:nth-child(2) {
-    background-color: green;
-  }
-  &:nth-child(3) {
-    background-color: blue;
-  }
+	&:nth-child(1) {
+		background-color: var(--primary-color-dark);
+	}
+	&:nth-child(2) {
+		background-color: green;
+	}
+	&:nth-child(3) {
+		background-color: blue;
+	}
 }

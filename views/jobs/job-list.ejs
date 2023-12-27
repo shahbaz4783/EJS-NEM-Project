@@ -1,13 +1,39 @@
 <section class="job-listing-page">
+	<div class="job-listing-heading">
+		<h2>Check out jobs posted on SkillHub</h2>
+	</div>
+	<div class="job-card-container">
 		<% for (job of jobs) { %>
 		<article class="job-card">
-			<a href="/job/<%= job._id %>">
-				<p class="text-title"><%= job.title %></p>
-				<p class="text-body"><%= job.description %></p>
-			</a>
-			<div class="card-footer">
-				<span class="text-title">$ <%= job.price %></span>
+			<div>
+				<h3 class="text-title"><%= job.title %></h3>
+				<p class="post-date">Posted on 23 Dec, 2023</p>
 			</div>
+
+			<div class="budget-exp">
+				<div>
+					<h3>$<%= job.price %></h3>
+					<p>Budget</p>
+				</div>
+				<div>
+					<h3>Intermediate</h3>
+					<p>Experience</p>
+				</div>
+			</div>
+
+			<p class="text-body"><%= job.description %></p>
+
+			<div class="tags">
+				<span><%= job.tag %></span>
+				<span>Website</span>
+				<span>HTML</span>
+				<span>Javascript</span>
+			</div>
+
+			<a href="/job/<%= job._id %>">
+				<button class="btn-secondary">See More</button>
+			</a>
 		</article>
 		<% } %>
+	</div>
 </section>
