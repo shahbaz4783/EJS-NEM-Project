@@ -121,29 +121,6 @@
   .post-date {
     color: #9aaa97;
   }
-
-  .tags {
-    span {
-      border-radius: 1.2em;
-      padding: 0.6em;
-      color: #5e6d55;
-      background-color: #f2f7f2;
-    }
-  }
-
-	.budget-exp {
-		display: flex;
-		gap: 5em;
-
-		h3 {
-			font-size: 1em;
-		}
-
-		p {
-			font-size: 1em;
-			color: var(--color-dull);
-		}
-	}
 }
 
 // Card 4

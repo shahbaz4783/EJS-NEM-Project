@@ -1,0 +1,17 @@
+@use '../utils/mixins' as m;
+
+.details-page {
+	min-height: 100svh;
+	display: flex;
+	
+	.post-info {
+		@include m.flex-column(2em);
+		border-right: 1px solid var(--color-dull);
+		flex: 8;
+	}
+
+	.owner-info {
+		flex: 2;
+	}
+}
+

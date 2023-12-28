@@ -37,6 +37,25 @@
 	}
 }
 
+// Post Head
+.post-head {
+  @include m.flex-column(1em);
+  width: 80%;
+
+  h2 {
+    font-size: clamp(1.5em, 2vw, 2em);
+    font-family: var(--serif-font);
+  }
+
+  p {
+    font-size: clamp(1em, 1vw, 1.6em);
+    font-family: var(--body-font);
+  }
+
+  @media (max-width: 940px) {
+    width: 100%;
+  }
+}
 
 // Page Heading
 
@@ -60,3 +79,36 @@
     width: 100%;
   }
 }
+
+// Budget Exp Layout
+.budget-exp {
+		display: flex;
+		gap: 5em;
+
+		h3 {
+			font-size: 1em;
+		}
+
+		p {
+			font-size: 1em;
+			color: var(--color-dull);
+		}
+	}
+
+  // Tags
+  .tags {
+    @include m.flex-column(1em);
+
+    article {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+
+      p {
+        border-radius: 1.2em;
+        padding: 0.6em;
+        color: #5e6d55;
+        background-color: #f2f7f2;
+      }
+    }
+  }

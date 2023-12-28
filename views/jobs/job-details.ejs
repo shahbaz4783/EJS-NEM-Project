@@ -1,9 +1,68 @@
-	<section class="basic-details">
-		<article>
-            <div class="product-specs-container">
-                <h2><%= info.title %></h2>
-                <p><%= info.description %></p>
-                <h3>$ <%= info.price %></h3>
-            </div>
-		</article>
-	</section>
+<main class="details-page">
+	<aside class="post-info">
+		<section class="post-head">
+				<h2><%= info.title %></h2>
+                <p>Posted on Dec 23, 2023</p>
+				<p><%= info.description %></p>
+        </section>
+        <section class="budget-exp">
+            <article>
+                <h3>$<%= info.price %></h3>
+                <p>Budget</p>
+            </article>
+            <article>
+                <h3>Intermediate</h3>
+                <p>Experience Level</p>
+            </article>
+        </section>
+        <section class="tags tag-detail">
+            <h2>Skills and Expertise</h2>
+            <article>
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>Javascript</p>
+                <p>React</p>
+            </article>
+        </section>
+        <section>
+            <h2>Activity on this job</h2>
+            <ul>
+                <li>
+                    <span>Proposals:</span><span>20 to 50</span>
+                </li>
+                <li>
+                    <span>Interviewing:</span><span>2</span>
+                </li>
+                <li>
+                    <span>Invites sent:</span><span>5</span>
+                </li>
+                <li>
+                    <span>Unanswered invites:</span><span>3</span>
+                </li>
+            </ul>
+        </section>
+	</aside>
+	<aside class="owner-info">
+        <section>
+            <form
+                class="card-button"
+                action="/<%= isAuth ? 'cart' : 'login' %>"
+                method="<%= isAuth ? 'post' : 'get' %>"
+            >
+                <input type="hidden" name="jobID" value="<%= info._id %>" />
+                <input type="submit" name="cart" id="cart" value="Add to cart" />
+            </form>
+            <form action="/apply" method="get">
+                <input type="hidden" name="jobID" value="<%= info._id %>" />
+                <input type="submit" name="checkout" id="checkout" value="Buy Now" />
+            </form>
+        </section>
+        <section>
+            <h3>About the client</h3>
+            <p>Alex Rolls</p>
+            <p>Netherlands</p>
+            <p>5 jobs posted</p>
+            <p>Member since Dec 21, 2023</p>
+        </section>
+	</aside>
+</main>
