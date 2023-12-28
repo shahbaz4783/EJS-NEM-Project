@@ -36,3 +36,27 @@
 		@include m.para-font;
 	}
 }
+
+
+// Page Heading
+
+.page-head {
+  @include m.flex-column(1em);
+  width: 50%;
+  min-height: 40dvh;
+
+  h2 {
+    font-size: clamp(2em, 3vw, 4em);
+    font-family: var(--serif-font);
+    margin-bottom: 0.4em;
+  }
+
+  p {
+    font-size: clamp(1em, 1vw, 1.6em);
+    font-family: var(--body-font);
+  }
+
+  @media (max-width: 940px) {
+    width: 100%;
+  }
+}

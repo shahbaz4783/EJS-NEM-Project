@@ -1,8 +1,4 @@
-<section class="job-listing-page">
-	<div class="job-listing-heading">
-		<h2>Check out jobs posted on SkillHub</h2>
-	</div>
-	<div class="job-card-container">
+<section class="job-card-container">
 		<% for (job of jobs) { %>
 		<article class="job-card">
 			<div>
@@ -30,10 +26,11 @@
 				<span>Javascript</span>
 			</div>
 
-			<a href="/job/<%= job._id %>">
-				<button class="btn-secondary">See More</button>
-			</a>
+			<div>
+				<a href="/job/<%= job._id %>">
+					<button class="btn-secondary">See More</button>
+				</a>
+			</div>
 		</article>
 		<% } %>
-	</div>
 </section>

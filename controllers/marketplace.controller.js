@@ -38,7 +38,7 @@ export const getAllJobs = async (req, res) => {
 		const allJobs = await Job.find();
 		res.render('index', {
 			path: '/jobs',
-			content: './jobs/job-list',
+			content: './jobs/index',
 			jobs: allJobs,
 			pageTitle: 'Browse All Job Listing',
 			isAuth: req.session.isLoggedIn,
