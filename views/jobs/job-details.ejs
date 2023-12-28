@@ -24,7 +24,7 @@
                 <p>React</p>
             </article>
         </section>
-        <section>
+        <section class="responsibility">
             <h2>Activity on this job</h2>
             <ul>
                 <li>
@@ -43,26 +43,28 @@
         </section>
 	</aside>
 	<aside class="owner-info">
-        <section>
+        <section class="btn-container">
+             <form action="/apply" method="get">
+                <input type="hidden" name="jobID" value="<%= info._id %>" />
+                <input class="btn-bg" type="submit" name="checkout" id="checkout" value="Apply Now" />
+            </form>
             <form
                 class="card-button"
                 action="/<%= isAuth ? 'cart' : 'login' %>"
                 method="<%= isAuth ? 'post' : 'get' %>"
             >
                 <input type="hidden" name="jobID" value="<%= info._id %>" />
-                <input type="submit" name="cart" id="cart" value="Add to cart" />
-            </form>
-            <form action="/apply" method="get">
-                <input type="hidden" name="jobID" value="<%= info._id %>" />
-                <input type="submit" name="checkout" id="checkout" value="Buy Now" />
+                <input class="btn-no-bg" type="submit" name="cart" id="cart" value="Add to Wishlist" />
             </form>
         </section>
-        <section>
-            <h3>About the client</h3>
-            <p>Alex Rolls</p>
-            <p>Netherlands</p>
-            <p>5 jobs posted</p>
-            <p>Member since Dec 21, 2023</p>
+        <section class="client-details">
+            <h2>About the client</h2>
+            <article>
+                <p>John MacCarty</p>
+                <p>Netherlands</p>
+                <p>5 jobs posted</p>
+                <p>Member since Dec 21, 2023</p>
+            </article>
         </section>
 	</aside>
 </main>

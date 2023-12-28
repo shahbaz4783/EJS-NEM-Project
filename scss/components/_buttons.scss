@@ -56,17 +56,51 @@
 	}
 }
 
+// Card Button
 .btn-secondary {
     all: unset;
     font-size: 1rem;
     background-color: green;
     color: white;
     cursor: pointer;
-    transform: all 0.3s ease;
+    transition: all 0.3s ease;
     border-radius: 2em;
     padding: 0.6em 1em;
 
     &:hover {
         background-color: rgb(2, 102, 2);
+    }
+}
+
+
+// Detail Page Buttons
+
+.btn-bg {
+    all: unset;
+    font-size: 1rem;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2em;
+    padding: 0.6em 0em;
+
+    &:hover {
+        background-color: rgb(2, 102, 2);
+    }
+}
+
+.btn-no-bg {
+    all: unset;
+    font-size: 1rem;
+    border: 2px solid green;
+    color: green;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2em;
+     padding: 0.6em 0em;
+
+    &:hover {
+        background-color: whitesmoke;
     }
 }

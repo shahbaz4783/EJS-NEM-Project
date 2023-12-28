@@ -3,15 +3,70 @@
 .details-page {
 	min-height: 100svh;
 	display: flex;
-	
+
 	.post-info {
 		@include m.flex-column(2em);
+		justify-content: unset;
 		border-right: 1px solid var(--color-dull);
 		flex: 8;
+		padding-top: 3em;
+
+		section {
+			border-bottom: 1px solid var(--color-dull);
+			padding: 1em 0;
+		}
+
+		.responsibility {
+			ul {
+				@include m.flex-column(0.4em);
+
+				li {
+					display: flex;
+					gap: 0.3em;
+				}
+			}
+		}
+	}
+	.owner-info {
+		@include m.flex-column(3em);
+		justify-content: unset;
+		flex: 2;
+		padding: 4em 1.6em;
+
+		.btn-container {
+			@include m.flex-column(1em);
+
+			form {
+				
+				input {
+					width: 100%;
+					text-align: center;
+					display: flex;
+					justify-content: center;
+				}
+			}
+		}
+
+		.client-details {
+			h2 {
+				margin-bottom: 1em
+			}
+			article {
+				@include m.flex-column(0em);
+
+			}
+		}
+
+		@media (max-width: 850px) {
+			padding: 2em 0;
+		}
 	}
 
-	.owner-info {
-		flex: 2;
+	@media (max-width: 850px) {
+		flex-direction: column;
+
+		.post-info {
+			border: none;
+		}
 	}
 }
-
