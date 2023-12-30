@@ -35,16 +35,28 @@ export const getServiceDetails = async (req, res) => {
 
 export const getAllJobs = async (req, res) => {
 	try {
-		const allJobs = await Job.find();
+		const page = parseInt(req.query.page) || 1;
+		const itemsPerPage = 4;
+		const skip = (page - 1) * itemsPerPage;
+
+		const allJobs = await Job.find().skip(skip).limit(itemsPerPage);
+
+		const totalJobsCount = await Job.countDocuments();
+		const totalPages = Math.ceil(totalJobsCount / itemsPerPage);
+
 		res.render('index', {
 			path: '/jobs',
 			content: './jobs/index',
 			jobs: allJobs,
 			pageTitle: 'Browse All Job Listing',
 			isAuth: req.session.isLoggedIn,
+			currentPage: page,
+			totalPages: totalPages,
+			itemsPerPage: itemsPerPage,
 		});
 	} catch (error) {
-		console.log(error);
+		console.error(error);
+		res.status(500).send('Internal Server Error');
 	}
 };
 

@@ -14,4 +14,26 @@
         </div>
 	</section>
     <%- include('./job-list') %>
+
+    <section class="pagination-section">
+        <% if (currentPage > 1) { %>
+            <a href="/jobs/all?page=<%= currentPage - 1 %>&limit=<%= itemsPerPage %>">
+                <button class="pagination-btn">Previous</button>
+            </a>
+        <% } %>
+
+        <% for (let i = 1; i <= totalPages; i++) { %>
+            <a href="/jobs/all?page=<%= i %>&limit=<%= itemsPerPage %>">
+                <button class="<%= i === currentPage ? 'active' : 'pagination-btn' %>">
+                    <%= i %>
+                </button>
+            </a>
+        <% } %>
+
+        <% if (currentPage < totalPages) { %>
+            <a href="/jobs/all?page=<%= currentPage + 1 %>&limit=<%= itemsPerPage %>">
+                <button class="pagination-btn">Next</button>
+            </a>
+        <% } %>
+    </section>
 </main>
